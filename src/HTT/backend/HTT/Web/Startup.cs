@@ -1,7 +1,6 @@
 ﻿using BusinessLogic;
 using DataAccess;
 using Microsoft.OpenApi.Models;
-using System.Reflection;
 
 namespace WebApi
 {
@@ -20,7 +19,7 @@ namespace WebApi
             services
                 .AddDataAccessDependencies(_configuration)
                 .AddBusinessLogicDependencies();
-                
+
             // Api configuration
             services
                 .AddCors(opt => opt.AddDefaultPolicy(b => b.AllowAnyHeader().AllowAnyMethod().AllowAnyOrigin()))

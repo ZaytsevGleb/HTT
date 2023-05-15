@@ -1,9 +1,8 @@
 using DataAccess;
 using DataAccess.Infrastructure;
 using Microsoft.EntityFrameworkCore;
-using WebApi;
 
-namespace HTT
+namespace WebApi
 {
     public class Program
     {
