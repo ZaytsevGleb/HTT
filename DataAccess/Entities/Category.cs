@@ -2,7 +2,7 @@
 
 public sealed class Category
 {
-    public Guid Id { get; set; }
+    public Guid Id { get; init; }
     public string Name { get; set; } = default!;
     public DateTime CreatedDate { get; init; }
     public DateTime? ModifiedDate { get; set; }

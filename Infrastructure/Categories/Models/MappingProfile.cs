@@ -1,14 +1,13 @@
 ﻿using AutoMapper;
 using DataAccess.Entities;
 
-namespace BusinessLogic.Products.Models;
+namespace BusinessLogic.Categories.Models;
 
 public sealed class MappingProfile : Profile
 {
     public MappingProfile()
     {
-        CreateMap<ProductModel, ProductDto>();
-        CreateMap<Product, ProductModel>();
+        CreateMap<CategoryModel, CategoryDto>();
+        CreateMap<Category, CategoryModel>();
     }
 }
-

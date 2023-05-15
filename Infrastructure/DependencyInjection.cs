@@ -1,4 +1,5 @@
-﻿using BusinessLogic.Products.Services;
+﻿using BusinessLogic.Categories.Services;
+using BusinessLogic.Products.Services;
 using Microsoft.Extensions.DependencyInjection;
 using System.Reflection;
 
@@ -12,7 +13,8 @@ namespace BusinessLogic
                 .AddAutoMapper(Assembly.GetExecutingAssembly());
 
             services
-                .AddScoped<ICategoryService, CategoryService>();
+                .AddScoped<ICategoriesService, CategoriesService>()
+                .AddScoped<IProductsService, ProductsService>();
 
             return services;
         }
