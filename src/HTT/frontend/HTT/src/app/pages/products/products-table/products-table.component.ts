@@ -15,10 +15,10 @@ export class ProductsTableComponent {
   @Input() categories!: ICategoryModel[];
 
   @Input() set products(products: IProductModel[]) {
-    this.productItems = products.map(product => {
+    this.productItems = products?.map(product => {
       return new ProductItem(
         product.id,
-        this.categories?.find(x => x.id = product.categoryId)!.name,
+        this.categories?.find(x => x.id == product.categoryId)!.name,
         product.name,
         product.price
       )

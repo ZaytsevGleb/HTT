@@ -12,7 +12,7 @@ import {ICategoryModel} from "../../models/category.model";
 export class ProductsComponent implements OnInit {
 
   products: IProductModel[] = [];
-  categories: ICategoryModel[] =[];
+  categories: ICategoryModel[] = [];
 
   constructor(
     private readonly productsService: ProductsService,

@@ -1,7 +1,7 @@
 import {Injectable} from '@angular/core';
 import {map, Observable} from "rxjs";
 
-import {HttApiClient, ICategoryDto, IProductDto} from "../client/htt-api.client";
+import {HttApiClient, IProductDto} from "../client/htt-api.client";
 import {IProductModel} from "../models/product.model";
 
 @Injectable({
@@ -10,7 +10,7 @@ import {IProductModel} from "../models/product.model";
 export class ProductsService {
 
   constructor(
-    private httAPIClient: HttApiClient
+    private readonly httAPIClient: HttApiClient
   ) {}
 
   getProducts(): Observable<IProductModel[]> {
