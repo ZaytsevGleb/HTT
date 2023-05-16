@@ -2,6 +2,7 @@
 using BusinessLogic.Categories.Models;
 using BusinessLogic.Categories.Services;
 using Microsoft.AspNetCore.Mvc;
+using WebApi.Dtos;
 using static Microsoft.AspNetCore.Http.StatusCodes;
 
 namespace WebApi.Controllers;
@@ -26,7 +27,7 @@ public sealed class CategoriesController : ControllerBase
     [ProducesResponseType(Status200OK, Type = typeof(IEnumerable<CategoryDto>))]
     public async Task<ActionResult<IEnumerable<CategoryModel>>> GetAsync()
     {
-        var categories = await _categoryService.GetCategoriesAsync();
+        var categories = await _categoryService.GetCategoriesWithPoruductsAsync();
 
         return Ok(categories.Select(_mapper.Map<CategoryDto>));
     }

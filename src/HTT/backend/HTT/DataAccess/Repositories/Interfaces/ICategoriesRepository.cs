@@ -4,5 +4,5 @@ namespace DataAccess.Repositories.Interfaces;
 
 public interface ICategoriesRepository
 {
-    Task<IEnumerable<Category>> GetAllAsync();
+    Task<IEnumerable<Category>> GetCategoriesWithPoruductsAsync();
 }

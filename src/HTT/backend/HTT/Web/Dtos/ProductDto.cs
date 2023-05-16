@@ -1,4 +1,4 @@
-﻿namespace BusinessLogic.Products.Models;
+﻿namespace WebApi.Dtos;
 
 public sealed class ProductDto
 {
@@ -6,4 +6,5 @@ public sealed class ProductDto
     public Guid CategoryId { get; init; }
     public string Name { get; init; } = default!;
     public decimal Price { get; set; }
+    public DateTime CreatedDate { get; init; }
 }

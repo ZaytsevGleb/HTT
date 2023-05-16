@@ -1,7 +1,7 @@
 ﻿using AutoMapper;
-using BusinessLogic.Products.Models;
 using BusinessLogic.Products.Services;
 using Microsoft.AspNetCore.Mvc;
+using WebApi.Dtos;
 using static Microsoft.AspNetCore.Http.StatusCodes;
 
 namespace WebApi.Controllers;

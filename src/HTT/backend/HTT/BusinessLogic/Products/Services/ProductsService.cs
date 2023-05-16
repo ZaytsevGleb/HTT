@@ -18,10 +18,9 @@ internal sealed class ProductsService : IProductsService
     }
     public async Task<IEnumerable<ProductModel>> GetProductsAsync()
     {
-        var categories = await _productsRepository.GetAllAsync();
-        var models = categories.Select(_mapper.Map<ProductModel>);
+        var products = await _productsRepository.GetAllAsync();
 
-        return models;
+        return products.Select(_mapper.Map<ProductModel>);
     }
 }
 

@@ -7,7 +7,6 @@ public sealed class MappingProfile : Profile
 {
     public MappingProfile()
     {
-        CreateMap<CategoryModel, CategoryDto>();
         CreateMap<Category, CategoryModel>();
     }
 }

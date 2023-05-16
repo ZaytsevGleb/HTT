@@ -4,5 +4,5 @@ namespace BusinessLogic.Categories.Services;
 
 public interface ICategoriesService
 {
-    Task<IEnumerable<CategoryModel>> GetCategoriesAsync();
+    Task<IEnumerable<CategoryModel>> GetCategoriesWithPoruductsAsync();
 }

@@ -1,6 +1,7 @@
 ﻿using BusinessLogic;
 using DataAccess;
 using Microsoft.OpenApi.Models;
+using System.Reflection;
 
 namespace WebApi
 {
@@ -23,6 +24,7 @@ namespace WebApi
             // Api configuration
             services
                 .AddCors(opt => opt.AddDefaultPolicy(b => b.AllowAnyHeader().AllowAnyMethod().AllowAnyOrigin()))
+                .AddAutoMapper(Assembly.GetExecutingAssembly())
                 .AddControllers();
 
             // Swagger configuration
