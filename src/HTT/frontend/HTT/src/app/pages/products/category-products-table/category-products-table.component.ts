@@ -6,7 +6,7 @@ import {ProductItem} from "../product-item.model";
 @Component({
   selector: 'category-products-table',
   templateUrl: './category-products-table.component.html',
-  styleUrls: ['./category-products-table.component.scss']
+  styleUrls: ['./category-products-table.component.css']
 })
 export class CategoryProductsTableComponent {
 

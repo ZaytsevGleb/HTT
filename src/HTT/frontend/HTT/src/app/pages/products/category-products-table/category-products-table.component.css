@@ -1,5 +1,39 @@
-.products-table__item{
+.category-products{
+  height: 100vh;
   display: flex;
-  width: 100%;
-  height: auto;
+  flex-wrap: wrap;
+  align-content: center;
+  justify-content: center;
+  text-align: center;
 }
+
+.table {
+
+  margin-bottom: 20px;
+  border: 5px solid #fff;
+  border-bottom-width: 3px;
+  border-collapse: collapse;
+  outline: 3px solid #ffd300;
+  font-size: 15px;
+  background: #fff!important;
+}
+
+.table th {
+  font-weight: bold;
+  padding: 7px;
+  background: #ffd300;
+  border: none;
+  text-align: center;
+  font-size: 15px;
+  border-top: 3px solid #fff;
+  border-bottom: 3px solid #ffd300;;
+}
+
+.table td {
+  padding: 7px;
+  border: none;
+  border-top: 3px solid #fff;
+  border-bottom: 3px solid #fff;
+  font-size: 15px;
+}
+
