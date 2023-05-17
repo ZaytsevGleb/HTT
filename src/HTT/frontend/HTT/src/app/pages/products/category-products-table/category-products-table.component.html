@@ -1,0 +1,18 @@
+<div
+  class="category-products-table">
+  <table
+    class="table">
+    <thead>
+    <th>Name</th>
+    <th>Price</th>
+    <th>Category</th>
+    </thead>
+    <tbody *ngFor="let item of categoryProducts">
+    <tr *ngFor="let product of item.products">
+      <td>{{product.name}}</td>
+      <td>{{product.price}}</td>
+      <td>{{item.name}}</td>
+    </tr>
+    </tbody>
+  </table>
+</div>

@@ -1,8 +1,10 @@
 import { Injectable } from '@angular/core';
-import {map, Observable} from "rxjs";
+import {map, Observable, pipe} from "rxjs";
 
-import {HttApiClient, ICategoryDto} from "../client/htt-api.client";
+import {HttApiClient, ICategoryDto, ProductDto} from "../client/htt-api.client";
 import {ICategoryModel} from "../models/category.model";
+import {ProductsService} from "./products.service";
+import {IProductModel} from "../models/product.model";
 
 @Injectable({
   providedIn: 'root'
@@ -10,7 +12,8 @@ import {ICategoryModel} from "../models/category.model";
 export class CategoriesService {
 
   constructor(
-    private readonly httAPIClient: HttApiClient
+    private readonly httAPIClient: HttApiClient,
+    private readonly productsService: ProductsService
   ) {}
 
   getCategories(): Observable<ICategoryModel[]>{
@@ -22,7 +25,17 @@ export class CategoriesService {
   private mapToModel(dto: ICategoryDto):ICategoryModel {
     return {
       id: dto.id!,
-      name: dto.name!
+      name: dto.name!,
+      products: dto.products?.map((x) => this.mapProductToModel(x))!
+    }
+  }
+
+  private mapProductToModel(dto: ProductDto): IProductModel{
+    return {
+      id: dto.id!,
+      categoryId: dto.categoryId!,
+      name: dto.name!,
+      price: dto.price!
     }
   }
 }

@@ -146,6 +146,8 @@ export class HttApiClient {
 export class CategoryDto implements ICategoryDto {
     id?: string;
     name?: string | undefined;
+    products?: ProductDto[] | undefined;
+    createdDate?: Date;
 
     constructor(data?: ICategoryDto) {
         if (data) {
@@ -160,6 +162,12 @@ export class CategoryDto implements ICategoryDto {
         if (_data) {
             this.id = _data["id"];
             this.name = _data["name"];
+            if (Array.isArray(_data["products"])) {
+                this.products = [] as any;
+                for (let item of _data["products"])
+                    this.products!.push(ProductDto.fromJS(item));
+            }
+            this.createdDate = _data["createdDate"] ? new Date(_data["createdDate"].toString()) : <any>undefined;
         }
     }
 
@@ -174,6 +182,12 @@ export class CategoryDto implements ICategoryDto {
         data = typeof data === 'object' ? data : {};
         data["id"] = this.id;
         data["name"] = this.name;
+        if (Array.isArray(this.products)) {
+            data["products"] = [];
+            for (let item of this.products)
+                data["products"].push(item.toJSON());
+        }
+        data["createdDate"] = this.createdDate ? this.createdDate.toISOString() : <any>undefined;
         return data;
     }
 }
@@ -181,6 +195,8 @@ export class CategoryDto implements ICategoryDto {
 export interface ICategoryDto {
     id?: string;
     name?: string | undefined;
+    products?: ProductDto[] | undefined;
+    createdDate?: Date;
 }
 
 export class ProductDto implements IProductDto {
@@ -188,6 +204,7 @@ export class ProductDto implements IProductDto {
     categoryId?: string;
     name?: string | undefined;
     price?: number;
+    createdDate?: Date;
 
     constructor(data?: IProductDto) {
         if (data) {
@@ -204,6 +221,7 @@ export class ProductDto implements IProductDto {
             this.categoryId = _data["categoryId"];
             this.name = _data["name"];
             this.price = _data["price"];
+            this.createdDate = _data["createdDate"] ? new Date(_data["createdDate"].toString()) : <any>undefined;
         }
     }
 
@@ -220,6 +238,7 @@ export class ProductDto implements IProductDto {
         data["categoryId"] = this.categoryId;
         data["name"] = this.name;
         data["price"] = this.price;
+        data["createdDate"] = this.createdDate ? this.createdDate.toISOString() : <any>undefined;
         return data;
     }
 }
@@ -229,6 +248,7 @@ export interface IProductDto {
     categoryId?: string;
     name?: string | undefined;
     price?: number;
+    createdDate?: Date;
 }
 
 export class ApiException extends Error {

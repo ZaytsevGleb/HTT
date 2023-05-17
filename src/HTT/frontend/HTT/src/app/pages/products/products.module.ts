@@ -1,4 +1,4 @@
-import {ProductsTableComponent} from "./products-table/products-table.component";
+import {CategoryProductsTableComponent} from "./category-products-table/category-products-table.component";
 import {NgModule} from "@angular/core";
 import {ProductsComponent} from "./products.component";
 import {ProductsService} from "../../services/products.service";
@@ -8,7 +8,7 @@ import {NgForOf} from "@angular/common";
 @NgModule({
   declarations: [
     ProductsComponent,
-    ProductsTableComponent
+    CategoryProductsTableComponent
   ],
   exports: [
     ProductsComponent
