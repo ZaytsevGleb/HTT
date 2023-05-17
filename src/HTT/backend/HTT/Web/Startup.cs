@@ -2,6 +2,7 @@
 using DataAccess;
 using Microsoft.OpenApi.Models;
 using System.Reflection;
+using WebApi.Infrastructure;
 
 namespace WebApi
 {
@@ -46,9 +47,9 @@ namespace WebApi
                     options.SwaggerEndpoint("../swagger/v1.0/swagger.json", "API v1.0");
                     options.RoutePrefix = "docs";
                 })
+                .UseMiddleware<ErrorHandlingMiddleware>()
                 .UseCors()
                 .UseRouting()
-                .UseAuthentication()
                 .UseEndpoints(endpoints =>
                 {
                     endpoints.MapGet(

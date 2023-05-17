@@ -24,6 +24,7 @@ public sealed class casd : ControllerBase
 
     [HttpGet(Name = "GetProducts")]
     [ProducesResponseType(Status200OK, Type = typeof(IEnumerable<ProductDto>))]
+    [ProducesResponseType(Status500InternalServerError, Type = typeof(ErrorDto))]
     public async Task<ActionResult<IEnumerable<ProductDto>>> GetAsync()
     {
         var products = await _productsService.GetProductsAsync();

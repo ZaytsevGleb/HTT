@@ -25,7 +25,8 @@ public sealed class CategoriesController : ControllerBase
 
     [HttpGet(Name = "GetCategories")]
     [ProducesResponseType(Status200OK, Type = typeof(IEnumerable<CategoryDto>))]
-    public async Task<ActionResult<IEnumerable<CategoryModel>>> GetAsync()
+    [ProducesResponseType(Status500InternalServerError, Type = typeof(ErrorDto))]
+    public async Task<ActionResult<IEnumerable<CategoryDto>>> GetAsync()
     {
         var categories = await _categoryService.GetCategoriesWithPoruductsAsync();
 
