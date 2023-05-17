@@ -9,12 +9,12 @@ namespace WebApi.Controllers;
 [ApiController]
 [Produces("application/json")]
 [Route("api/products")]
-public sealed class casd : ControllerBase
+public sealed class ProductsController : ControllerBase
 {
     private readonly IMapper _mapper;
     private readonly IProductsService _productsService;
 
-    public casd(
+    public ProductsController(
         IMapper mapper,
         IProductsService productsService)
     {

@@ -23,7 +23,6 @@ namespace WebApi
             }
             catch (Exception ex)
             {
-                throw;
             }
 
             await host.RunAsync();
